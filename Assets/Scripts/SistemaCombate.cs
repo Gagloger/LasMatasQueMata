@@ -97,4 +97,10 @@ public class SistemaCombate : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(puntoAtaque.position,radioAtaque);
     }
+
+    public float GetHealthPercent()
+    {
+        return vida / 100;
+    }
+
 }
