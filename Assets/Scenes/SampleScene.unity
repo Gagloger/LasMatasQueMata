@@ -1924,6 +1924,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4630550500615025087, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Size.y
+      value: 37.537254
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630550500615025087, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Offset.y
+      value: 18.268627
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140186702979720307, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Size.x
+      value: 36.326077
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140186702979720307, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Offset.x
+      value: -17.663038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364695520352616942, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Size.y
+      value: 36.326088
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364695520352616942, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Offset.y
+      value: -17.663044
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358411129803671158, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Size.x
+      value: 44.400608
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358411129803671158, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
+      propertyPath: m_Offset.x
+      value: 21.700304
+      objectReference: {fileID: 0}
     - target: {fileID: 7287963314147665574, guid: 8c0845e080f03824697b4bf5966f70cd, type: 3}
       propertyPath: m_Name
       value: LimitesMapa
@@ -2021,6 +2053,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393259129212505749, guid: 467ece794f5297a439abdf146fbf8d11, type: 3}
+      propertyPath: numeroJugador
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3592525438834995328, guid: 467ece794f5297a439abdf146fbf8d11, type: 3}
       propertyPath: otroJugador
       value: 
@@ -2090,6 +2126,14 @@ PrefabInstance:
       propertyPath: otroJugador
       value: 
       objectReference: {fileID: 290533461}
+    - target: {fileID: 7562207998626094846, guid: 5f2198551255bb140a2dd01fdf76b350, type: 3}
+      propertyPath: tiempoRespawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842388928782810661, guid: 5f2198551255bb140a2dd01fdf76b350, type: 3}
+      propertyPath: numeroJugador
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
