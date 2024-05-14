@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuntajeJugador : MonoBehaviour
 {
-    [SerializeField] private float puntaje;
+    public float puntaje;
     [SerializeField] private float cantidadPuntaje;
     private bool ganandoPuntos;
 
@@ -32,7 +32,7 @@ public class PuntajeJugador : MonoBehaviour
 
     public void Muerte(){
         if (puntaje > 0f){
-            puntaje-=10f;
+            puntaje-=100f;
         }
     }
     public void Kill(){
