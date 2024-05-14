@@ -12,16 +12,12 @@ public class barraVidaP2 : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    public void CambiarVidaMax(float vidaMax){
-        slider.maxValue = vidaMax;
-    }
 
     public void CambiarVidaActual(float vidaActual){
         slider.value = vidaActual;
     }
 
     public void InicializarBarra (float cantidadVida){
-        CambiarVidaMax(cantidadVida);
         CambiarVidaActual(cantidadVida);
     }
 }

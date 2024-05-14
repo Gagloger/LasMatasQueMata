@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel4.unity
     guid: 85faa2a3c7674a74c807c593264b7052
+  - enabled: 1
+    path: Assets/Scenes/GanadorT.unity
+    guid: 1069422e8eb06a949b32dba166b5bb6c
+  - enabled: 1
+    path: Assets/Scenes/GanadorH.unity
+    guid: 83910900f7efcc945abbb8542e3512d6
   m_configObjects: {}

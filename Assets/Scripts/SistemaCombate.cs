@@ -21,7 +21,7 @@ public class SistemaCombate : MonoBehaviour
     private Animator animator;
     private Animator animatorAtks; [SerializeField] private GameObject esfera;
 
-    [SerializeField] private Vector2 startPosicion;
+    [SerializeField] private Vector2 startPosicion; [SerializeField]private Transform prueba;
     [SerializeField] private float tiempoRespawn;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
@@ -30,6 +30,7 @@ public class SistemaCombate : MonoBehaviour
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        barraVidaP1.InicializarBarra(vida);
     }
     private void Start() {
         cargaAtaque=0f;
@@ -37,10 +38,10 @@ public class SistemaCombate : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         animatorAtks = esfera.GetComponent<Animator>();
-        startPosicion = transform.position;
+        startPosicion = new Vector2(prueba.position.x,prueba.position.y);
         vida = vidaMax;
 
-        barraVidaP1.InicializarBarra(vida);
+        
     }
 
     private void Update() {
@@ -113,15 +114,18 @@ public class SistemaCombate : MonoBehaviour
             GetComponent<PuntajeJugador>().Muerte();
             StartCoroutine(Respawn(tiempoRespawn));}
     }
-
+    public void Reaparecer(float cd)
+    {
+        StartCoroutine(Respawn(tiempoRespawn));
+    }
     public IEnumerator Respawn (float cd){
-        rb2D.simulated=false;
+        //rb2D.simulated=false;
         spriteRenderer.enabled=false;
         yield return new WaitForSeconds(cd);
         transform.position = startPosicion;
         spriteRenderer.enabled=true;
         vida = vidaMax;
-        rb2D.simulated=true;
+        //rb2D.simulated=true;
 
         barraVidaP1.CambiarVidaActual(vida);
     }
@@ -131,9 +135,5 @@ public class SistemaCombate : MonoBehaviour
         Gizmos.DrawWireSphere(puntoAtaque.position,radioAtaque);
     }
 
-    public float GetHealthPercent()
-    {
-        return vida / 100;
-    }
 
 }

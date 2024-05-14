@@ -387,6 +387,7 @@ MonoBehaviour:
   esfera: {fileID: 8917885163876477898}
   startPosicion: {x: 0, y: 0}
   tiempoRespawn: 1
+  barraVidaP1: {fileID: 0}
 --- !u!114 &2393259129212505749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntaje: 0
   cantidadPuntaje: 10
-  numeroJugador: 0
+  numeroJugador: 1
   efectoNutriendose: {fileID: 4202803733596927567}
 --- !u!95 &1452844279930694745
 Animator:

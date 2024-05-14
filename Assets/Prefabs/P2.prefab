@@ -210,7 +210,8 @@ MonoBehaviour:
   radioAtaqueMax: 6
   esfera: {fileID: 155502075023332288}
   startPosicion: {x: 0, y: 0}
-  tiempoRespawn: 0
+  tiempoRespawn: 1
+  barraVidaP2: {fileID: 0}
 --- !u!114 &8842388928782810661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntaje: 0
   cantidadPuntaje: 10
+  numeroJugador: 2
   efectoNutriendose: {fileID: 8691606040649749604}
 --- !u!95 &4871416524081579815
 Animator:

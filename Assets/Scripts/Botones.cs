@@ -13,7 +13,14 @@ public class Botones : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene(0);
 
+        }
+    }
     public void OnClickJugar()
     {
        SceneManager.LoadScene(Random.Range(1,5));
@@ -27,6 +34,6 @@ public class Botones : MonoBehaviour
 
     public void OnClickMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(0);
     }
 }
