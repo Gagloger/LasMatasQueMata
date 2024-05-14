@@ -186,4 +186,13 @@ public class ControlPersonajeP1 : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(controladorSuelo.position,dimesionControladorSuelo);
     }
+
+    #region EfectosMapa
+    public void DentroAgua(float reduccion){
+        velocidadMovimiento-=reduccion;
+    }
+    public void FueraAgua(float reduccion){
+        velocidadMovimiento+=reduccion;
+    }
+    #endregion
 }

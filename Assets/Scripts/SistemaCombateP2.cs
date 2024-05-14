@@ -20,12 +20,14 @@ public class SistemaCombateP2 : MonoBehaviour
     [SerializeField] private float radioAtaqueMax;
 
     private Animator animator;
+    private Animator animatorAtks; [SerializeField] private GameObject esfera;
 
     private void Start() {
         //rb2D=GetComponent<Rigidbody2D>();
         cargaAtaque=0f;
         cargandoAtaque=false;
         animator = GetComponent<Animator>();
+        animatorAtks = esfera.GetComponent<Animator>();
     }
 
     private void Update() {
@@ -38,15 +40,19 @@ public class SistemaCombateP2 : MonoBehaviour
             switch (cargaAtaque){ //este es importante para las animaciones, pero mecanicamente no significa mucho
                 case <0.5f:
                 Debug.Log("Ataque debil");
+                animatorAtks.SetTrigger("atkDebil");
                 break;
                 case <1f:
                 Debug.Log("Ataque normal");
+                animatorAtks.SetTrigger("atkMedio");
                 break;
                 case <2f:
                 Debug.Log("Ataque fuerte");
+                animatorAtks.SetTrigger("atkFuerte");
                 break;
                 default:
                 Debug.Log("Ataque super");
+                animatorAtks.SetTrigger("atkSuper");
                 break;
             }
             Golpe(cargaAtaque*10);   //Cuando se lanza el ataque, segun la carga, hace mas o menos daño
@@ -63,6 +69,7 @@ public class SistemaCombateP2 : MonoBehaviour
             fuerzaEmpuje = cargaAtaque * multEmpuje;
         }
         animator.SetBool("CargandoAtk",cargandoAtaque);
+        animatorAtks.SetBool("cargandoAtk",cargandoAtaque);
     }
 
     private void Golpe(float cant){
@@ -84,7 +91,9 @@ public class SistemaCombateP2 : MonoBehaviour
         if (cargandoAtaque){
             cargandoAtaque=false;
         }
-        if (vida<0){gameObject.SetActive(false);}
+        if (vida<0){
+            GetComponent<PuntajeJugador>().Muerte();
+            gameObject.SetActive(false);}
     }
 
     private void OnDrawGizmos() {
