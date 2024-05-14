@@ -401,6 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntaje: 0
   cantidadPuntaje: 10
+  numeroJugador: 0
   efectoNutriendose: {fileID: 4202803733596927567}
 --- !u!95 &1452844279930694745
 Animator:
