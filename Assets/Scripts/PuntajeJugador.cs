@@ -31,11 +31,12 @@ public class PuntajeJugador : MonoBehaviour
     }
 
     public void Muerte(){
-        if (puntaje > 0f){
-            puntaje-=100f;
+        puntaje-=100f;
+        if (puntaje < 0f){
+            puntaje = 0f;
         }
     }
-    public void Kill(){
+    public void Kill(){ // no se usa
         if (puntaje > 0f){
             puntaje+=10f;
         }
