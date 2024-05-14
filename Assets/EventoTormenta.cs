@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EventoTormenta : MonoBehaviour
 {
+    [SerializeField] private GameObject particula;
     [SerializeField] private Vector3 fuerzaEmpuje;
     [SerializeField] private float tiempoEmpuje;
     [SerializeField] private float tiempoEntreEmpujes;
@@ -29,6 +30,7 @@ public class EventoTormenta : MonoBehaviour
             if (tiempoEntreEmpujes<0){
                 empujando = true;
                 tiempoEmpuje = Random.Range(2,6);
+                particula.SetActive(true);
                 NuevoEmpuje();
             }
         }
@@ -37,6 +39,7 @@ public class EventoTormenta : MonoBehaviour
             if (tiempoEmpuje<0){
                 empujando=false;
                 tiempoEntreEmpujes = tiempoEntreEmpujesMax;
+                particula.SetActive(false);
             }
         }
     }
