@@ -7,6 +7,7 @@ public class PuntajeJugador : MonoBehaviour
     public float puntaje;
     [SerializeField] private float cantidadPuntaje;
     private bool ganandoPuntos;
+    [SerializeField] private int numeroJugador;
 
     private Animator animator;
     [SerializeField] private GameObject efectoNutriendose;
@@ -26,16 +27,19 @@ public class PuntajeJugador : MonoBehaviour
         if (ganandoPuntos){
             puntaje += cantidadPuntaje*Time.deltaTime;
             efectoNutriendose.SetActive(true);
+            InterfazPuntajes.Instance.SumarPuntosP1(puntaje*Time.deltaTime,numeroJugador);
         } else {efectoNutriendose.SetActive(false);}
         animator.SetBool("Nutriendose",ganandoPuntos);
     }
 
     public void Muerte(){
-        if (puntaje > 0f){
-            puntaje-=100f;
+        InterfazPuntajes.Instance.SumarPuntosP1((-100f),numeroJugador);
+        puntaje-=100f;
+        if (puntaje < 0f){
+            puntaje = 0f;
         }
     }
-    public void Kill(){
+    public void Kill(){ // no se usa
         if (puntaje > 0f){
             puntaje+=10f;
         }

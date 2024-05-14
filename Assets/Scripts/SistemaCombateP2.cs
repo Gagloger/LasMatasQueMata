@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SistemaCombateP2 : MonoBehaviour
 {
-
-    //private Rigidbody2D rb2D; //no se usa
     [SerializeField] private Transform puntoAtaque;
     [SerializeField] private Transform otroJugador;
     [SerializeField] private float multEmpuje;
@@ -13,6 +11,7 @@ public class SistemaCombateP2 : MonoBehaviour
     private Vector2 direccionEmpuje;
 
     [SerializeField] private float vida;
+    [SerializeField] private float vidaMax;
     private float cargaAtaque;
     private bool cargandoAtaque;
     [Range(0f, 3.0f)][SerializeField] private float velocidadCarga;
@@ -22,12 +21,23 @@ public class SistemaCombateP2 : MonoBehaviour
     private Animator animator;
     private Animator animatorAtks; [SerializeField] private GameObject esfera;
 
+    [SerializeField] private Vector2 startPosicion;
+    [SerializeField] private float tiempoRespawn;
+    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb2D;
+
+    private void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Start() {
-        //rb2D=GetComponent<Rigidbody2D>();
         cargaAtaque=0f;
         cargandoAtaque=false;
         animator = GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
         animatorAtks = esfera.GetComponent<Animator>();
+        startPosicion = transform.position;
+        vida = vidaMax;
     }
 
     private void Update() {
@@ -93,7 +103,17 @@ public class SistemaCombateP2 : MonoBehaviour
         }
         if (vida<0){
             GetComponent<PuntajeJugador>().Muerte();
-            gameObject.SetActive(false);}
+            StartCoroutine(Respawn(tiempoRespawn));}
+    }
+
+    public IEnumerator Respawn (float cd){
+        rb2D.simulated=false;
+        spriteRenderer.enabled=false;
+        yield return new WaitForSeconds(cd);
+        transform.position = startPosicion;
+        spriteRenderer.enabled=true;
+        rb2D.simulated=true;
+        vida = vidaMax;
     }
 
     private void OnDrawGizmos() {
