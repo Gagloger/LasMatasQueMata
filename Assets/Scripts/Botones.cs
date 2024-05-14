@@ -16,7 +16,7 @@ public class Botones : MonoBehaviour
 
     public void OnClickJugar()
     {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+       SceneManager.LoadScene(Random.Range(1,5));
     }
 
     public void OnClickSalir() 
