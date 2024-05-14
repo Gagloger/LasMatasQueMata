@@ -26,6 +26,8 @@ public class SistemaCombate : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
 
+    [SerializeField] private barraVidaP1 barraVidaP1;
+
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -37,6 +39,8 @@ public class SistemaCombate : MonoBehaviour
         animatorAtks = esfera.GetComponent<Animator>();
         startPosicion = transform.position;
         vida = vidaMax;
+
+        barraVidaP1.InicializarBarra(vida);
     }
 
     private void Update() {
@@ -99,6 +103,9 @@ public class SistemaCombate : MonoBehaviour
 
     public void TomarDaño(float damage){
         vida-=damage;
+
+        barraVidaP1.CambiarVidaActual(vida);
+
         if (cargandoAtaque){
             cargandoAtaque=false;
         }
@@ -115,6 +122,8 @@ public class SistemaCombate : MonoBehaviour
         spriteRenderer.enabled=true;
         vida = vidaMax;
         rb2D.simulated=true;
+
+        barraVidaP1.CambiarVidaActual(vida);
     }
 
     private void OnDrawGizmos() {
